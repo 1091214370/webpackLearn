@@ -1,14 +1,10 @@
-¼ÇÂ¼Ñ§Ï°¹ı³ÌÖĞµÄdemo£¬·ÖÏíÑ§Ï°ÄÚÈİ¡£
-### Ä¿Â¼½éÉÜ
+è®°å½•å­¦ä¹ è¿‡ç¨‹ä¸­çš„demoï¼Œåˆ†äº«å­¦ä¹ å†…å®¹ã€‚
+### ç›®å½•ä»‹ç»
 -webpack
-
-|_demo `//±¾´ÎwebpackÍêÕûdemo`
-
-|_dist  `//demo Ä¿Â¼`
-
-  |_loader `//loader×Ü½áÎÄÕÂÓÃµ½µÄdemo`
+|_demo `//æœ¬æ¬¡webpackå®Œæ•´demo`
+|_dist  `//demo ç›®å½•`
+  |_loader `//loaderæ€»ç»“æ–‡ç« ç”¨åˆ°çš„demo`
+  |_start `//å…¥é—¨ç¯‡ç”¨åˆ°çš„demo`
   
-  |_start `//ÈëÃÅÆªÓÃµ½µÄdemo`
-  
-### ×Ü½á±Ê¼Ç£¨³ÖĞø¸üĞÂ£©
-1. [webpackÈëÃÅÆª](http://note.youdao.com/noteshare?id=62a5e6d0998951ced23dc1e264f7302b&sub=04A44132BFA94DB08179002D5B8146A9)
+### æ€»ç»“ç¬”è®°ï¼ˆæŒç»­æ›´æ–°ï¼‰
+1. [webpackå…¥é—¨ç¯‡](http://note.youdao.com/noteshare?id=62a5e6d0998951ced23dc1e264f7302b&sub=04A44132BFA94DB08179002D5B8146A9)
