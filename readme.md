@@ -2,10 +2,10 @@
 ### 目录介绍
 ```
 -webpack
-  |--demo `//本次webpack完整demo`
-  |--dist  `//demo 目录`
-    |--loader `//loader总结文章用到的demo`
-    |--start `//入门篇用到的demo`
+  |--demo //本次webpack完整demo
+  |--dist  //demo 目录
+    |--loader //loader总结文章用到的demo
+    |--start //入门篇用到的demo
 ```
 
 ### 总结笔记（持续更新）
