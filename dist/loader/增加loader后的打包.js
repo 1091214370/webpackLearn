@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/_css-loader@1.0.0@css-loader/index.js!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./src/style/style.css":
-/*!***********************************************************************************************************************************!*\
-  !*** ./node_modules/_css-loader@1.0.0@css-loader!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./src/style/style.css ***!
-  \***********************************************************************************************************************************/
+/***/ "./node_modules/_css-loader@1.0.0@css-loader/index.js!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./node_modules/_sass-loader@7.1.0@sass-loader/lib/loader.js!./src/style/style.less":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/_css-loader@1.0.0@css-loader!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./node_modules/_sass-loader@7.1.0@sass-loader/lib/loader.js!./src/style/style.less ***!
+  \************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-  eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/_css-loader@1.0.0@css-loader/lib/css-base.js */ \"./node_modules/_css-loader@1.0.0@css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"body {\\n  background: red;\\n  height: 100px;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/style/style.css?./node_modules/_css-loader@1.0.0@css-loader!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js");
+  eval("var escape = __webpack_require__(/*! ../../node_modules/_css-loader@1.0.0@css-loader/lib/url/escape.js */ \"./node_modules/_css-loader@1.0.0@css-loader/lib/url/escape.js\");\nexports = module.exports = __webpack_require__(/*! ../../node_modules/_css-loader@1.0.0@css-loader/lib/css-base.js */ \"./node_modules/_css-loader@1.0.0@css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"body {\\n  background: url(\" + escape(__webpack_require__(/*! ../../static/images/vscode.png */ \"./static/images/vscode.png\")) + \");\\n  height: 100px;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/style/style.less?./node_modules/_css-loader@1.0.0@css-loader!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./node_modules/_sass-loader@7.1.0@sass-loader/lib/loader.js");
 
   /***/ }),
   
@@ -105,6 +105,17 @@
   /***/ (function(module, exports) {
   
   eval("/*\n\tMIT License http://www.opensource.org/licenses/mit-license.php\n\tAuthor Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\nmodule.exports = function(useSourceMap) {\n\tvar list = [];\n\n\t// return the list of modules as css string\n\tlist.toString = function toString() {\n\t\treturn this.map(function (item) {\n\t\t\tvar content = cssWithMappingToString(item, useSourceMap);\n\t\t\tif(item[2]) {\n\t\t\t\treturn \"@media \" + item[2] + \"{\" + content + \"}\";\n\t\t\t} else {\n\t\t\t\treturn content;\n\t\t\t}\n\t\t}).join(\"\");\n\t};\n\n\t// import a list of modules into the list\n\tlist.i = function(modules, mediaQuery) {\n\t\tif(typeof modules === \"string\")\n\t\t\tmodules = [[null, modules, \"\"]];\n\t\tvar alreadyImportedModules = {};\n\t\tfor(var i = 0; i < this.length; i++) {\n\t\t\tvar id = this[i][0];\n\t\t\tif(typeof id === \"number\")\n\t\t\t\talreadyImportedModules[id] = true;\n\t\t}\n\t\tfor(i = 0; i < modules.length; i++) {\n\t\t\tvar item = modules[i];\n\t\t\t// skip already imported module\n\t\t\t// this implementation is not 100% perfect for weird media query combinations\n\t\t\t//  when a module is imported multiple times with different media queries.\n\t\t\t//  I hope this will never occur (Hey this way we have smaller bundles)\n\t\t\tif(typeof item[0] !== \"number\" || !alreadyImportedModules[item[0]]) {\n\t\t\t\tif(mediaQuery && !item[2]) {\n\t\t\t\t\titem[2] = mediaQuery;\n\t\t\t\t} else if(mediaQuery) {\n\t\t\t\t\titem[2] = \"(\" + item[2] + \") and (\" + mediaQuery + \")\";\n\t\t\t\t}\n\t\t\t\tlist.push(item);\n\t\t\t}\n\t\t}\n\t};\n\treturn list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n\tvar content = item[1] || '';\n\tvar cssMapping = item[3];\n\tif (!cssMapping) {\n\t\treturn content;\n\t}\n\n\tif (useSourceMap && typeof btoa === 'function') {\n\t\tvar sourceMapping = toComment(cssMapping);\n\t\tvar sourceURLs = cssMapping.sources.map(function (source) {\n\t\t\treturn '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'\n\t\t});\n\n\t\treturn [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n\t}\n\n\treturn [content].join('\\n');\n}\n\n// Adapted from convert-source-map (MIT)\nfunction toComment(sourceMap) {\n\t// eslint-disable-next-line no-undef\n\tvar base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n\tvar data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;\n\n\treturn '/*# ' + data + ' */';\n}\n\n\n//# sourceURL=webpack:///./node_modules/_css-loader@1.0.0@css-loader/lib/css-base.js?");
+  
+  /***/ }),
+  
+  /***/ "./node_modules/_css-loader@1.0.0@css-loader/lib/url/escape.js":
+  /*!*********************************************************************!*\
+    !*** ./node_modules/_css-loader@1.0.0@css-loader/lib/url/escape.js ***!
+    \*********************************************************************/
+  /*! no static exports found */
+  /***/ (function(module, exports) {
+  
+  eval("module.exports = function escape(url) {\n    if (typeof url !== 'string') {\n        return url\n    }\n    // If url is already wrapped in quotes, remove them\n    if (/^['\"].*['\"]$/.test(url)) {\n        url = url.slice(1, -1);\n    }\n    // Should url be wrapped?\n    // See https://drafts.csswg.org/css-values-3/#urls\n    if (/[\"'() \\t\\n]/.test(url)) {\n        return '\"' + url.replace(/\"/g, '\\\\\"').replace(/\\n/g, '\\\\n') + '\"'\n    }\n\n    return url\n}\n\n\n//# sourceURL=webpack:///./node_modules/_css-loader@1.0.0@css-loader/lib/url/escape.js?");
   
   /***/ }),
   
@@ -183,18 +194,29 @@
   /***/ (function(module, __webpack_exports__, __webpack_require__) {
   
   "use strict";
-  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _demo_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./demo/index */ \"./src/demo/index.js\");\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.css */ \"./src/style/style.css\");\n/* harmony import */ var _style_style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_style_css__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n// import './style/style.less';\r\n\r\nconst commponent = () => {\r\n  Object(_demo_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n  let el = document.createElement('div');\r\n  el.innerHTML = 'hello webpack';\r\n  return el;\r\n}\r\ndocument.appendChild(commponent());\n\n//# sourceURL=webpack:///./src/index.js?");
+  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _demo_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./demo/index */ \"./src/demo/index.js\");\n/* harmony import */ var _style_style_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style/style.less */ \"./src/style/style.less\");\n/* harmony import */ var _style_style_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_style_less__WEBPACK_IMPORTED_MODULE_1__);\n\r\n// import './style/style.css';\r\n\r\n\r\nconst commponent = () => {\r\n  Object(_demo_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n  let el = document.createElement('div');\r\n  el.innerHTML = 'hello webpack';\r\n  return el;\r\n}\r\ndocument.body.appendChild(commponent());\n\n//# sourceURL=webpack:///./src/index.js?");
   
   /***/ }),
   
-  /***/ "./src/style/style.css":
-  /*!*****************************!*\
-    !*** ./src/style/style.css ***!
-    \*****************************/
+  /***/ "./src/style/style.less":
+  /*!******************************!*\
+    !*** ./src/style/style.less ***!
+    \******************************/
   /*! no static exports found */
   /***/ (function(module, exports, __webpack_require__) {
   
-  eval("\nvar content = __webpack_require__(/*! !../../node_modules/_css-loader@1.0.0@css-loader!../../node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./style.css */ \"./node_modules/_css-loader@1.0.0@css-loader/index.js!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./src/style/style.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js */ \"./node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/style/style.css?");
+  eval("\nvar content = __webpack_require__(/*! !../../node_modules/_css-loader@1.0.0@css-loader!../../node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!../../node_modules/_sass-loader@7.1.0@sass-loader/lib/loader.js!./style.less */ \"./node_modules/_css-loader@1.0.0@css-loader/index.js!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!./node_modules/_sass-loader@7.1.0@sass-loader/lib/loader.js!./src/style/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js */ \"./node_modules/_style-loader@0.23.1@style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/style/style.less?");
+  
+  /***/ }),
+  
+  /***/ "./static/images/vscode.png":
+  /*!**********************************!*\
+    !*** ./static/images/vscode.png ***!
+    \**********************************/
+  /*! no static exports found */
+  /***/ (function(module, exports, __webpack_require__) {
+  
+  eval("module.exports = __webpack_require__.p + \"b9a1fe6d5d0f20cb3c8ccf961902fb76.png\";\n\n//# sourceURL=webpack:///./static/images/vscode.png?");
   
   /***/ })
   
