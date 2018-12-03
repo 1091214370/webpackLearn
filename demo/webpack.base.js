@@ -1,4 +1,7 @@
 const PATH = require('path');
+const HtmlWenpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -7,6 +10,10 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: PATH.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+      contentBase: './dist',
+      hot: true
     },
     module: {
         rules: [
@@ -27,5 +34,14 @@ module.exports = {
             use: ['xml-loader'],
           }
       ],
-    }
+    },
+    plugins: [
+      new CleanWebpackPlugin(['dist']), // 清理/dist文件夹
+      new HtmlWenpackPlugin({
+        title: 'demo webpack plugin'
+      }),
+      new webpack.DefinePlugin({ // 定义全局变量
+
+      }),
+    ],
 };
